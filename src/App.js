@@ -139,7 +139,7 @@ const InvestForm = Form.create({name: 'form_in_modal2'})(
                                       placeholder={referId ? referId : ""} autoComplete="off"/>)}
                         </Form.Item>
                         <Form.Item
-                            label={`${Lang[that.props.lang].account.modal.invest.amount} (Available Balance: ${sero} FPSC)`}>
+                            label={`${Lang[that.props.lang].account.modal.invest.amount} (Available Balance: ${sero} HAPY)`}>
                             {getFieldDecorator('AmountSero', {
                                 rules: [{required: true, message: `Please Input Amount! `}],
                             })(<InputNumber min={0} precision={6} max={parseFloat(sero)} step={100}
@@ -147,16 +147,16 @@ const InvestForm = Form.create({name: 'form_in_modal2'})(
                                 that.setState({amount:v})
                                 that.staticTotal();
                             }} allowClear placeholder="0.000000" autoComplete="off"/>)}
-                            <br/>FPSC ({Lang[that.props.lang].account.modal.invest.amountTips})
+                            <br/>HAPY ({Lang[that.props.lang].account.modal.invest.amountTips})
                         </Form.Item>
                         <p>{Lang[that.props.lang].account.modal.invest.estimate}: <span
-                            style={{color: '#1DA57A'}}>{that.state.amount}</span> (FPSC) x <span
+                            style={{color: '#1DA57A'}}>{that.state.amount}</span> (HAPY) x <span
                             style={{color: '#1DA57A'}}>{that.state.estimateLevel} </span>(Times) = <strong
-                            style={{color: 'rgb(216, 0, 38)'}}>{new BigNumber(that.state.amount).multipliedBy(that.state.estimateLevel).toFixed(6)} </strong>FPSC
+                            style={{color: 'rgb(216, 0, 38)'}}>{new BigNumber(that.state.amount).multipliedBy(that.state.estimateLevel).toFixed(6)} </strong>HAPY
                         </p>
 
                         <p>{Lang[that.props.lang].account.modal.invest.total} : <strong
-                            style={{color: 'rgb(216, 0, 38)'}}>{this.state.total}</strong> FPSC</p>
+                            style={{color: 'rgb(216, 0, 38)'}}>{this.state.total}</strong> HAPY</p>
                     </Form>
                 </Modal>
             );
@@ -277,7 +277,7 @@ class ContentPage extends Component {
 
     getContractSeroBalance() {
         let that = this;
-        that.callMethod("balanceOf", ["FPSC"], function (res) {
+        that.callMethod("balanceOf", ["HAPY"], function (res) {
             if (res) {
                 that.setState({
                     ct_balanceOfSero: new BigNumber(res, 10).dividedBy(decimal).toFixed(6),
@@ -293,7 +293,7 @@ class ContentPage extends Component {
             let balanceSero = 0;
             let balanceObj = currentAccount.Balance;
             balanceObj.forEach(function (value, currency) {
-                if (currency === 'FPSC') {
+                if (currency === 'HAPY') {
                     balanceSero = new BigNumber(value).dividedBy(decimal).toFixed(6);
                 }
             });
@@ -394,7 +394,7 @@ class ContentPage extends Component {
         let executeData = {
             from: that.state.currentAccount.PK,
             to: contractAddress,
-            value: "0x" + value,//FPSC
+            value: "0x" + value,//HAPY
             data: packData,
             gas_price: "0x" + new BigNumber("1000000000").toString(16),
             cy: cy,
@@ -402,7 +402,7 @@ class ContentPage extends Component {
         let estimateParam = {
             from: that.state.currentAccount.MainPKr,
             to: contractAddress,
-            value: "0x" + value,//FPSC
+            value: "0x" + value,//HAPY
             data: packData,
             gas_price: "0x" + new BigNumber("1000000000").toString(16),
             cy: cy,
@@ -461,7 +461,7 @@ class ContentPage extends Component {
                 message.warn(Lang[that.state.lang].toast.minInvest);
             } else {
                 try {
-                    this.executeMethod("invest", [referId], new BigNumber(amountSero).multipliedBy(decimal).toString(16), "FPSC", password, function (res) {
+                    this.executeMethod("invest", [referId], new BigNumber(amountSero).multipliedBy(decimal).toString(16), "HAPY", password, function (res) {
                         if (res) {
                             form.resetFields();
                             that.setState({showInvest: false});
@@ -477,7 +477,7 @@ class ContentPage extends Component {
                     if (err) {
                         message.error(err.message);
                     } else {
-                        message.error("request FPSC Node error:[" + err.message + "]");
+                        message.error("request HAPY Node error:[" + err.message + "]");
                     }
                     if (cb) {
                         cb(false)
@@ -507,14 +507,14 @@ class ContentPage extends Component {
     shareProfit() {
         let that = this;
         try {
-            this.executeMethod("triggerStaticProfit", [], "0", "FPSC", '', function (res) {
+            this.executeMethod("triggerStaticProfit", [], "0", "HAPY", '', function (res) {
                 if (res) {
                     openNotificationWithIcon('success', 'Successful', `${Lang[that.state.lang].toast.tx}${res}`)
                 } else {
                     if (res.error) {
                         message.error(res.error.message);
                     } else {
-                        message.error("request FPSC Node error:[" + res + "]");
+                        message.error("request HAPY Node error:[" + res + "]");
                     }
                 }
             });
@@ -522,7 +522,7 @@ class ContentPage extends Component {
             if (err) {
                 message.error(err.message);
             } else {
-                message.error("request FPSC Node error:[" + err.message + "]");
+                message.error("request HAPY Node error:[" + err.message + "]");
             }
         }
 
@@ -531,14 +531,14 @@ class ContentPage extends Component {
     withdraw() {
         let that = this;
         try {
-            this.executeMethod("withdrawBalance", [], "0", "FPSC", '', function (res) {
+            this.executeMethod("withdrawBalance", [], "0", "HAPY", '', function (res) {
                 if (res) {
                     openNotificationWithIcon('success', 'Successful', `${Lang[that.state.lang].toast.tx}${res}`)
                 } else {
                     if (res.error) {
                         message.error(res.error.message);
                     } else {
-                        message.error("request FPSC Node error:[" + res + "]");
+                        message.error("request HAPY Node error:[" + res + "]");
                     }
                 }
             });
@@ -546,7 +546,7 @@ class ContentPage extends Component {
             if (err) {
                 message.error(err.message);
             } else {
-                message.error("request FPSC Node error:[" + err.message + "]");
+                message.error("request HAPY Node error:[" + err.message + "]");
             }
         }
     }
