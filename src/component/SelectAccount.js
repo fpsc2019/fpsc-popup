@@ -13,12 +13,12 @@ const {Option} = Select;
 let host = window.location.host;
 
 let dapp = {
-    name: "HAPPYK",
-    contractAddress: "25CHRYtgyxS1juHEv5ERh3PyD4X2PZZF529fgWDTLYbZ1K187MAQf4rVk2cBMLnhNL1APH6i1rSt6HGZZE3c3c2s",
-    github: "https://github.com/asnowhero/asnow-app",
-    author: "asnow",
-    url: host+"/asnow-app/",
-    logo: host+"/asnow-app/logo.png",
+    name: "HAPY",
+    contractAddress: "23dumkM6CMVgP6fjcjirAFyPoj7kJj9KB7opbcea9432DPH6Usq69nv8KD2UXpatpCEHDPwBit6kzdZMNs34mNQT",
+    github: "https://github.com/fpsc2019/fpsc-popup",
+    author: "fpsc2019",
+    url: host+"/fpsc-popup/",
+    logo: host+"/fpsc-popup/logo.png",
 };
 
 class SelectAccount extends Component {

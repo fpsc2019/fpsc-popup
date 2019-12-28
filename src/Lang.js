@@ -68,8 +68,7 @@ class Lang {
                     title:"投资",
                     referId:"推荐人编号",
                     amount:"投资金额",
-                    amountTips:"1000 HAPY起投",
-                    ticket:"门票",
+                    amountTips:"100 HAPY起投",
                     availableHAPY:"可用的余额",
                     availableExchange:"最多可抵用",
                     total:"应付合计",
@@ -92,7 +91,7 @@ class Lang {
         },
         toast:{
             lessAmount:"HAPY余额不足以支付本次交易.",
-            minInvest:"最小投资金额为 1000 HAPY.",
+            minInvest:"最小投资金额为 100 HAPY.",
             tx:"交易提交成功, 等待区块打包交易, 交易哈希: ",
             copySuccess:"拷贝成功! ",
 
@@ -156,9 +155,8 @@ class Lang {
                 invest:{
                     title:"Invest",
                     referId:"Refer ID",
-                    ticket:"Tickets",
                     amount:"Invet Amount",
-                    amountTips:"At least invest 1000 HAPY",
+                    amountTips:"At least invest 100 HAPY",
                     availableHAPY:"Available Blance",
                     availableExchange:"Max Exchange",
                     total:"Total",
@@ -178,8 +176,7 @@ class Lang {
         },
         toast:{
             lessAmount:"The balance is not enough to pay for this transaction.",
-            lessTicket:"There are not enough tickets, please depost the happyk first.",
-            minInvest:"Invest Amount at least 1000 HAPY.",
+            minInvest:"Invest Amount at least 100 HAPY.",
             tx:"The transaction was submitted successfully, waiting for the block to be packaged, and the transaction hash: ",
             copySuccess:"Copy to clipboard successfully! ",
         },

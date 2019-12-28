@@ -51,7 +51,7 @@ const {Countdown} = Statistic;
 
 let dapp = {
     name: "HAPY",
-    contractAddress: "3j1fxFVHWxWthRDBrStMLrfastb8V7HnmC4ywu8ZEfiQBZiq74MWFhdHHF1FBjd9qQ8J3HXFDfZtebCEo78Adxx2",
+    contractAddress: "23dumkM6CMVgP6fjcjirAFyPoj7kJj9KB7opbcea9432DPH6Usq69nv8KD2UXpatpCEHDPwBit6kzdZMNs34mNQT",
     github: "https://github.com/fpsc2019/fpsc-popup",
     author: "HAPY",
     url: document.location.href,
@@ -84,9 +84,9 @@ const InvestForm = Form.create({name: 'form_in_modal2'})(
                 let total = new BigNumber(that.state.amount);
                 let totalAmount=total.plus(that.props.totalAmount)
 
-                let estimateLevel = 3;
-                if(parseFloat(total)<1000) {
-                } else if (parseFloat(totalAmount) >= 1000 && parseFloat(totalAmount) < 12500) {
+                let estimateLevel = 0;
+                if(parseFloat(total)<100) {
+                } else if (parseFloat(totalAmount) >= 100 && parseFloat(totalAmount) < 12500) {
                     estimateLevel = 3
                 } else if (parseFloat(totalAmount) >= 12500 && parseFloat(totalAmount) < 25000) {
                     estimateLevel = 4
@@ -277,7 +277,7 @@ class ContentPage extends Component {
 
     getContractSeroBalance() {
         let that = this;
-        that.callMethod("balanceOf", ["HAPY"], function (res) {
+        that.callMethod("balanceOfHAPY", [], function (res) {
             if (res) {
                 that.setState({
                     ct_balanceOfSero: new BigNumber(res, 10).dividedBy(decimal).toFixed(6),
@@ -454,7 +454,7 @@ class ContentPage extends Component {
                     cb(false)
                 }
                 message.warn(Lang[that.state.lang].toast.lessAmount);
-            }  else if (parseFloat(amountSero) < 1000) {
+            }  else if (parseFloat(amountSero) < 100) {
                 if (cb) {
                     cb(false)
                 }
