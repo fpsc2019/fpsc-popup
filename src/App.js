@@ -51,7 +51,7 @@ const {Countdown} = Statistic;
 
 let dapp = {
     name: "HAPY",
-    contractAddress: "23dumkM6CMVgP6fjcjirAFyPoj7kJj9KB7opbcea9432DPH6Usq69nv8KD2UXpatpCEHDPwBit6kzdZMNs34mNQT",
+    contractAddress: "54uf2UU9Zf1mgyR25WFpogyMfkgQRJZJKzY6Rfy3nygmjSoBXFE6R8y2RyCeCc1T6aEmaKK8W3Gu6SY8KdTq54x9",
     github: "https://github.com/fpsc2019/fpsc-popup",
     author: "HAPY",
     url: document.location.href,
